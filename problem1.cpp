@@ -283,7 +283,7 @@ public:
         // *There is no case where the student with the given name does not exist
         // *There is no case where the user enters an invalid choice
 
-        std::cout << "Enter the student name: ";
+        std::cout << "Enter student name: ";
         getline(std::cin, input);
         std::string name = input;
         Student *student = getStudent(name);
@@ -326,7 +326,10 @@ public:
             this->run();
         }
 
-        this->trainStudentWithObj(student);
+        if (choice != 5)
+        {
+            this->trainStudentWithObj(student);
+        }
     }
 
     void addStudent()
@@ -335,10 +338,10 @@ public:
         // 2. Create a new student object according to the given type and add it to the students array
         // *There is no case where the user enters an invalid student type or the name of an existing student
         // *There is no case where the student count exceeds MAX_STUDENTS
-        std::cout << "Enter the student type (Scientist, Athlete, Artist): ";
+        std::cout << "Enter student type (Scientist, Athlete, Artist): ";
         getline(std::cin, input);
         std::string type = input;
-        std::cout << "Enter the student name: ";
+        std::cout << "Enter student name: ";
         getline(std::cin, input);
         std::string name = input;
 
@@ -361,10 +364,10 @@ public:
         //    - If it is a tie, display "It's a tie!"
         // 4. Update the stats of the students according to the result
         // *There is no case where the user enters the name of a non-existing student or the same name for both student
-        std::cout << "Enter the name of the first student: ";
+        std::cout << "Enter first student name for the contest: ";
         getline(std::cin, input);
         std::string name1 = input;
-        std::cout << "Enter the name of the second student: ";
+        std::cout << "Enter second student name for the contest: ";
         getline(std::cin, input);
         std::string name2 = input;
 
@@ -447,6 +450,10 @@ public:
             showStatus();
         }
         else if (input == "5")
+        {
+            return;
+        }
+        else
         {
             return;
         }
